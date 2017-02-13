@@ -304,7 +304,7 @@ public class BleController {
     private class BleGattCallback extends BluetoothGattCallback {
         @Override
         public void onConnectionStateChange(BluetoothGatt gatt, int status, int newState) {
-            isConnectResponse = true;
+
             if (newState == BluetoothProfile.STATE_CONNECTED) { //连接成功
                 isBreakByMyself = false;
                 mBluetoothGatt.discoverServices();
@@ -332,6 +332,7 @@ public class BleController {
                         charMap.put(characteristics.get(j).getUuid().toString(), characteristics.get(j));
                         if (characteristics.get(j).getUuid().toString().equals(BLUETOOTH_NOTIFY_C)) {
                             if (enableNotification(true, characteristics.get(j))) {
+                                isConnectResponse = true;
                                 connSuccess();
                             } else {
                                 reConnect();
@@ -426,17 +427,17 @@ public class BleController {
 
             while (i$.hasNext()) {
                 BluetoothGattService service = (BluetoothGattService) i$.next();
-                Log.i("BluetoothUtil", "service: " + service.getUuid());
+                Log.i(LOGTAG, "service: " + service.getUuid());
                 Iterator i$1 = service.getCharacteristics().iterator();
 
                 while (i$1.hasNext()) {
                     BluetoothGattCharacteristic characteristic = (BluetoothGattCharacteristic) i$1.next();
-                    Log.d("BluetoothUtil", "  characteristic: " + characteristic.getUuid() + " value: " + Arrays.toString(characteristic.getValue()));
+                    Log.d("LOGTAG", "  characteristic: " + characteristic.getUuid() + " value: " + Arrays.toString(characteristic.getValue()));
                     Iterator i$2 = characteristic.getDescriptors().iterator();
 
                     while (i$2.hasNext()) {
                         BluetoothGattDescriptor descriptor = (BluetoothGattDescriptor) i$2.next();
-                        Log.v("BluetoothUtil", "        descriptor: " + descriptor.getUuid() + " value: " + Arrays.toString(descriptor.getValue()));
+                        Log.v("LOGTAG", "        descriptor: " + descriptor.getUuid() + " value: " + Arrays.toString(descriptor.getValue()));
                     }
                 }
             }
@@ -498,7 +499,7 @@ public class BleController {
             runOnMainThread(new Runnable() {
                 @Override
                 public void run() {
-                    connectCallback.onConnSuccess();
+                    connectCallback.onConnFailed();
                 }
             });
         }
