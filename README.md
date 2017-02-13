@@ -69,8 +69,7 @@ Android Ble类库，基于回调，暴露搜索、连接、发送、接收、断
 > S 代表service的UUID；
 > 
 > C 代表characteristic的UUID；
-> 
-> D 代表descriptor的UUID；
+
 
 如果硬件没有提供UUID，可以下载Ble调试助手进行查看
 [http://download.csdn.net/detail/hansion3333/9753311](http://download.csdn.net/detail/hansion3333/9753311 "Ble串口助手")
