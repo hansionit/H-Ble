@@ -62,7 +62,6 @@ Android Ble类库，基于回调，暴露搜索、连接、发送、接收、断
     
         private static final String BLUETOOTH_S = "0000fff0-0000-1000-8000-00805f9b34fb";
     	private static final String BLUETOOTH_NOTIFY_C = "0000fff7-0000-1000-8000-00805f9b34fb";
-    	private static final String BLUETOOTH_NOTIFY_D = "00002902-0000-1000-8000-00805f9b34fb";
     	private static final String BLUETOOTH_WRITE_C = "0000fff6-0000-1000-8000-00805f9b34fb";
 
 > 变量名最后一位字母：
