@@ -149,7 +149,7 @@ public class BleController {
     public void connect(final int connectionTimeOut, final String devicesAddress, ConnectCallback connectCallback) {
         BluetoothDevice remoteDevice = mAdapter.getRemoteDevice(devicesAddress);
         if (null == remoteDevice) {
-            Log.e(LOGTAG, "根据此地址找不到设备：" + devicesAddress);
+            Log.e(LOGTAG, "No device found at this address：" + devicesAddress);
             return;
         }
 
