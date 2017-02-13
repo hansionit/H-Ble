@@ -66,12 +66,12 @@ public class BleController {
     private ConnectCallback connectCallback;
     //读操作请求队列
     private ReceiverRequestQueue mReceiverRequestQueue = new ReceiverRequestQueue();
-
+    //此属性一般不用修改
+    private static final String BLUETOOTH_NOTIFY_D = "00002902-0000-1000-8000-00805f9b34fb";
 
     //TODO 这里是硬件提供的各种UUID 一定要根据自己的情况进行修改
     private static final String BLUETOOTH_S = "0000fff0-0000-1000-8000-00805f9b34fb";
     private static final String BLUETOOTH_NOTIFY_C = "0000fff7-0000-1000-8000-00805f9b34fb";
-    private static final String BLUETOOTH_NOTIFY_D = "00002902-0000-1000-8000-00805f9b34fb";
     private static final String BLUETOOTH_WRITE_C = "0000fff6-0000-1000-8000-00805f9b34fb";
 
     //-----------------------------  对外公开的方法 ----------------------------------------------
@@ -181,7 +181,10 @@ public class BleController {
             return;
         }
 
+        //设置数组进去
         gattCharacteristic.setValue(buf);
+
+        //发送
         boolean b = mBluetoothGatt.writeCharacteristic(gattCharacteristic);
 
         Log.e(LOGTAG, "send:" + b + "data：" + bytesToHexString(buf));
