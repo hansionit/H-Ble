@@ -77,7 +77,11 @@ public class BleController {
     //-----------------------------  对外公开的方法 ----------------------------------------------
 
 
-    // 获取BleController实例对象
+
+    /**
+     * 获取BleController实例对象
+     * @return
+     */
     public synchronized static BleController getInstance() {
         if (null == sBleManager) {
             sBleManager = new BleController();
@@ -86,7 +90,11 @@ public class BleController {
     }
 
 
-    // 进行初始化
+    /**
+     * 进行初始化
+     * @param context
+     * @return
+     */
     public BleController init(Context context) {
         if (mContext == null) {
             mContext = context.getApplicationContext();
