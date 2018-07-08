@@ -83,3 +83,5 @@ Android Ble类库，基于回调，暴露搜索、连接、发送、接收、断
 > 个人博客：[http://www.hansion.win](http://www.hansion.win)
 > 
 > CSDN: [http://blog.csdn.net/hansion3333](http://blog.csdn.net/hansion3333)
+
+* 注意：蓝牙的使用，与设备有莫大的关联，所以适配方面需要多加处理 此库在ZUK Z2 6.0/7.0,魅蓝note3 5.1，红米note3 5.0，一加7.0，华为7.0等手机上测试无问题，其他机型请自测
